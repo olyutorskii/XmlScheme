@@ -111,7 +111,7 @@ li要素を子に持つ複数行コンテンツ。
 
 内容 : 代替文字列1文字。推測不可能な場合はU+FFFDなどが望ましい。
 encoding : 元データのエンコーディングおよび文字集合指定。
-           人狼BBSでは事実上「Shift_JIS」固定。
+           F国以前の人狼BBSでは事実上「Shift_JIS」固定。
 hexBin : 元データの16進データ文字列。2文字か4文字。例)「874a」「FF」
 ############################################################################
 ]]></xsd:documentation>
@@ -229,6 +229,9 @@ Announce型システムメッセージ要素のグループ
             <xsd:element ref="tns:winHamster" />
             <xsd:element ref="tns:playerList" />
             <xsd:element ref="tns:panic" />
+            <xsd:element ref="tns:vanish" />
+            <xsd:element ref="tns:checkout" />
+            <xsd:element ref="tns:shortMember" />
         </xsd:choice>
     </xsd:group>
 
@@ -264,6 +267,7 @@ Extra型システムメッセージ要素のグループ
         <xsd:choice>
             <xsd:element ref="tns:judge" />
             <xsd:element ref="tns:guard" />
+            <xsd:element ref="tns:counting2" />
             <xsd:element ref="tns:assault" />
         </xsd:choice>
     </xsd:group>
@@ -1054,6 +1058,56 @@ uri => プレイヤーの指定した連絡先URI。URI条件を満たすかど�
 
     <!-- ================================================================ -->
 
+    <xsd:element name="vanish" type="tns:EventAnnounce">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+システムメッセージ：失踪 (G国)
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute
+                name="avatarId"
+                type="tns:AvatarId"
+                use="required"
+            />
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
+    <xsd:element name="checkout" type="tns:EventAnnounce">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+システムメッセージ：チェックアウト (G国)
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute
+                name="avatarId"
+                type="tns:AvatarId"
+                use="required"
+            />
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
+    <xsd:element name="shortMember" type="tns:EventAnnounce">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+システムメッセージ：定員不足 (G国)
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
     <xsd:element name="askEntry" >
         <xsd:annotation>
 <xsd:documentation><![CDATA[
@@ -1243,6 +1297,33 @@ target => 護衛されたAvatarの識別子。
                         type="tns:AvatarId"
                         use="required"
                     />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
+    <xsd:element name="counting2">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+システムメッセージ：投票開示(G国以降)
+vote要素(個々の投票)を1つ以上持つ。
+countingと異なりvictim属性は定義されていない。
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="tns:EventExtra">
+                    <xsd:sequence>
+                        <xsd:element
+                            ref="tns:vote"
+                            minOccurs="1"
+                            maxOccurs="unbounded"
+                        />
+                    </xsd:sequence>
                 </xsd:extension>
             </xsd:complexContent>
         </xsd:complexType>

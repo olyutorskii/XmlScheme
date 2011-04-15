@@ -26,6 +26,9 @@ Copyright(c) 2009 olyutorskii
 | winHamster
 | playerList
 | panic
+| vanish
+| checkout
+| shortMember
 " >
 
 <!ENTITY % orderElems "
@@ -39,6 +42,7 @@ Copyright(c) 2009 olyutorskii
 <!ENTITY % extraElems "
   judge
 | guard
+| counting2
 | assault
 " >
 
@@ -239,6 +243,23 @@ Copyright(c) 2009 olyutorskii
     %announceAttrs;
 >
 
+<!ELEMENT vanish (li)* >
+<!ATTLIST vanish
+    %announceAttrs;
+    avatarId CDATA #REQUIRED
+>
+
+<!ELEMENT checkout (li)* >
+<!ATTLIST checkout
+    %announceAttrs;
+    avatarId CDATA #REQUIRED
+>
+
+<!ELEMENT shortMember (li)* >
+<!ATTLIST shortMember
+    %announceAttrs;
+>
+
 <!ELEMENT askEntry (li)* >
 <!ATTLIST askEntry
     %orderAttrs;
@@ -283,6 +304,11 @@ Copyright(c) 2009 olyutorskii
     %extraAttrs;
     byWhom CDATA #REQUIRED
     target CDATA #REQUIRED
+>
+
+<!ELEMENT counting2 (li*, vote+) >
+<!ATTLIST counting2
+    %extraAttrs;
 >
 
 <!ELEMENT assault (li)* >
