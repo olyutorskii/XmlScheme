@@ -26,6 +26,7 @@ Copyright(c) 2009 olyutorskii
 | winHamster
 | playerList
 | panic
+| execution
 | vanish
 | checkout
 | shortMember
@@ -241,6 +242,18 @@ Copyright(c) 2009 olyutorskii
 <!ELEMENT panic (li)* >
 <!ATTLIST panic
     %announceAttrs;
+>
+
+<!ELEMENT nominated EMPTY >
+<!ATTLIST nominated
+    avatarId CDATA #REQUIRED
+    count CDATA #REQUIRED
+>
+
+<!ELEMENT execution (li*, nominated+) >
+<!ATTLIST execution
+    %announceAttrs;
+    victim CDATA #IMPLIED
 >
 
 <!ELEMENT vanish (li)* >

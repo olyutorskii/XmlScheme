@@ -6,7 +6,7 @@
     targetNamespace="http://jindolf.sourceforge.jp/xml/ns/401"
     elementFormDefault="qualified"
     xml:lang="ja-JP"
-    version="219"
+    version="220"
 >
 
     <xsd:annotation>
@@ -229,6 +229,7 @@ Announce型システムメッセージ要素のグループ
             <xsd:element ref="tns:winHamster" />
             <xsd:element ref="tns:playerList" />
             <xsd:element ref="tns:panic" />
+            <xsd:element ref="tns:execution" />
             <xsd:element ref="tns:vanish" />
             <xsd:element ref="tns:checkout" />
             <xsd:element ref="tns:shortMember" />
@@ -1054,6 +1055,67 @@ uri => プレイヤーの指定した連絡先URI。URI条件を満たすかど�
 ############################################################################
 ]]></xsd:documentation>
         </xsd:annotation>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
+    <xsd:element name="execution">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+システムメッセージ：処刑結果開示 (G国)
+nominated要素(個々の投票集計)を1つ以上持つ。
+誰が投票したかは開示されない。
+victim => 処刑された人のAvatar識別子。誰も処刑されなかったら省略。
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="tns:EventAnnounce">
+                    <xsd:sequence>
+                        <xsd:element
+                            ref="tns:nominated"
+                            minOccurs="1"
+                            maxOccurs="unbounded"
+                        />
+                    </xsd:sequence>
+                    <xsd:attribute
+                        name="victim"
+                        type="tns:AvatarId"
+                        use="optional"
+                    />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- ================================================================ -->
+
+    <xsd:element name="nominated">
+        <xsd:annotation>
+<xsd:documentation><![CDATA[
+############################################################################
+G国投票状況。
+誰が投票したかは開示されない。
+voteと異なり既に集計済みの結果が表される。
+avatarId => 被投票者
+count => 集票数
+############################################################################
+]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute
+                name="avatarId"
+                type="tns:AvatarId"
+                use="required"
+            />
+            <xsd:attribute
+                name="count"
+                type="xsd:positiveInteger"
+                use="required"
+            />
+        </xsd:complexType>
     </xsd:element>
 
     <!-- ================================================================ -->
