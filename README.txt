@@ -1,4 +1,3 @@
-$Id: 00README.txt 857 2009-10-01 05:31:16Z olyutorskii $
 [UTF-8 Japanese]
 
                              Jindolf XML Scheme
@@ -36,19 +35,19 @@ Jindolf
 
   このアーカイブは、UTF-8による開発環境を前提として構成されています。
   このアーカイブの原本となる開発資産は、
-      http://svn.sourceforge.jp/svnroot/jindolf/XmlScheme/
-  を上位に持つSubversionリポジトリで管理されています。
+      http://hg.sourceforge.jp/view/jindolf/XmlScheme
+  を上位に持つMercurialリポジトリで管理されています。
 
 
 === ディレクトリ内訳構成 ===
 
-./00README.txt
+./README.txt
     あなたが今見てるこれ。
 
-./ChangeLog.txt
+./CHANGELOG.txt
     変更履歴。
 
-./License.txt
+./LICENSE.txt
     ライセンスに関して。
 
 ./dtd/

@@ -1,4 +1,3 @@
-$Id: ChangeLog.txt 857 2009-10-01 05:31:16Z olyutorskii $
 [UTF-8 Japanese]
 
 

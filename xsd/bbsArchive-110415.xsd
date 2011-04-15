@@ -6,7 +6,7 @@
     targetNamespace="http://jindolf.sourceforge.jp/xml/ns/401"
     elementFormDefault="qualified"
     xml:lang="ja-JP"
-    version="218"
+    version="219"
 >
 
     <xsd:annotation>
@@ -20,7 +20,6 @@ License : The MIT License
 ※ カタログ化はご自由に
 
 Copyright(c) 2009 olyutorskii
-$Id: bbsArchive-091001.xsd 858 2009-10-01 05:57:28Z olyutorskii $
 
 ############################################################################
 ]]></xsd:documentation>
