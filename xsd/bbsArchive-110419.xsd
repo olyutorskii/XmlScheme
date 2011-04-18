@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <xsd:schema
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd      ="http://www.w3.org/2001/XMLSchema"
+    xmlns:core     ="http://jindolf.sourceforge.jp/xml/ns/401"
     xmlns:tns      ="http://jindolf.sourceforge.jp/xml/ns/501"
     targetNamespace="http://jindolf.sourceforge.jp/xml/ns/501"
     elementFormDefault="qualified"
     xml:lang="ja-JP"
-    version="221"
+    version="223"
 >
 
     <xsd:annotation>
@@ -31,8 +32,8 @@ Copyright(c) 2009 olyutorskii
         schemaLocation="http://www.w3.org/2001/xml.xsd"
     />
 
-
-    <xsd:include
+    <xsd:import
+        namespace="http://jindolf.sourceforge.jp/xml/ns/401"
         schemaLocation="http://jindolf.sourceforge.jp/xml/xsd/coreType-090929.xsd"
     />
 
@@ -121,7 +122,7 @@ hexBin : 元データの16進データ文字列。2文字か4文字。例)「874
                 <xsd:extension base="tns:Onechar">
                     <xsd:attribute
                         name="encoding"
-                        type="tns:EncodingDecl"
+                        type="core:EncodingDecl"
                         use="required"
                     />
                     <xsd:attribute
@@ -149,7 +150,7 @@ eventFamily属性値は"announce"固定。
             <xsd:extension base="tns:TextLines">
                 <xsd:attribute
                     name="eventFamily"
-                    type="tns:EventFamily"
+                    type="core:EventFamily"
                     fixed="announce"
                 />
             </xsd:extension>
@@ -171,7 +172,7 @@ eventFamily属性値は"order"固定。
             <xsd:extension base="tns:TextLines">
                 <xsd:attribute
                     name="eventFamily"
-                    type="tns:EventFamily"
+                    type="core:EventFamily"
                     fixed="order"
                 />
             </xsd:extension>
@@ -193,7 +194,7 @@ eventFamily属性値は"extra"固定。
             <xsd:extension base="tns:TextLines">
                 <xsd:attribute
                     name="eventFamily"
-                    type="tns:EventFamily"
+                    type="core:EventFamily"
                     fixed="extra"
                 />
             </xsd:extension>
@@ -356,12 +357,12 @@ generator => XMLを吐き出したアプリ、サブシステム、ライブラ�
             />
             <xsd:attribute
                 name="state"
-                type="tns:VillageState"
+                type="core:VillageState"
                 use="required"
             />
             <xsd:attribute
                 name="disclosure"
-                type="tns:DisclosureType"
+                type="core:DisclosureType"
                 use="optional"
                 default="complete"
             />
@@ -383,7 +384,7 @@ generator => XMLを吐き出したアプリ、サブシステム、ライブラ�
             />
             <xsd:attribute
                 name="landId"
-                type="tns:LandIdentifier"
+                type="core:LandIdentifier"
                 use="required"
             />
             <xsd:attribute
@@ -399,13 +400,13 @@ generator => XMLを吐き出したアプリ、サブシステム、ライブラ�
             />
             <xsd:attribute
                 name="origencoding"
-                type="tns:EncodingDecl"
+                type="core:EncodingDecl"
                 use="optional"
                 default="Shift_JIS"
             />
             <xsd:attribute
                 name="timezone"
-                type="tns:Timezone"
+                type="core:Timezone"
                 use="optional"
                 default="GMT+09:00"
             />
@@ -546,7 +547,7 @@ faceIconURI => 顔画像アイコンへのURI。
             <xsd:sequence />
             <xsd:attribute
                 name="avatarId"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
             <xsd:attribute
@@ -617,7 +618,7 @@ loadedBy => 進行中の村を参加者が読み込んだ場合、その時の�
             </xsd:choice>
             <xsd:attribute
                 name="type"
-                type="tns:PeriodType"
+                type="core:PeriodType"
                 use="required"
             />
             <xsd:attribute
@@ -627,7 +628,7 @@ loadedBy => 進行中の村を参加者が読み込んだ場合、その時の�
             />
             <xsd:attribute
                 name="disclosure"
-                type="tns:DisclosureType"
+                type="core:DisclosureType"
                 use="optional"
                 default="complete"
             />
@@ -653,7 +654,7 @@ loadedBy => 進行中の村を参加者が読み込んだ場合、その時の�
             />
             <xsd:attribute
                 name="loadedBy"
-                type="tns:PlayerId"
+                type="core:PlayerId"
                 use="optional"
             />
         </xsd:complexType>
@@ -675,7 +676,7 @@ avatarId => Avatar識別子
         <xsd:complexType>
             <xsd:attribute
                 name="avatarId"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
         </xsd:complexType>
@@ -715,7 +716,7 @@ avatarId => Avatar識別子
                     />
                     <xsd:attribute
                         name="avatarId"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -770,7 +771,7 @@ roleHeads要素(各役職の人数記述)を複数かかえる。
         <xsd:complexType>
             <xsd:attribute
                 name="role"
-                type="tns:Role"
+                type="core:Role"
                 use="required"
             />
             <xsd:attribute
@@ -868,7 +869,7 @@ victim => 処刑された人のAvatar識別子。誰も処刑されなかった�
                     </xsd:sequence>
                     <xsd:attribute
                         name="victim"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="optional"
                     />
                 </xsd:extension>
@@ -891,12 +892,12 @@ voteTo => 投票された人のAvatar識別子
         <xsd:complexType>
             <xsd:attribute
                 name="byWhom"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
             <xsd:attribute
                 name="target"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
         </xsd:complexType>
@@ -918,7 +919,7 @@ avatarId => 突然死者のAvatar識別子
                 <xsd:extension base="tns:EventAnnounce">
                     <xsd:attribute
                         name="avatarId"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -1019,12 +1020,12 @@ uri => プレイヤーの指定した連絡先URI。URI条件を満たすかど�
         <xsd:complexType>
             <xsd:attribute
                 name="playerId"
-                type="tns:PlayerId"
+                type="core:PlayerId"
                 use="required"
             />
             <xsd:attribute
                 name="avatarId"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
             <xsd:attribute
@@ -1034,7 +1035,7 @@ uri => プレイヤーの指定した連絡先URI。URI条件を満たすかど�
             />
             <xsd:attribute
                 name="role"
-                type="tns:Role"
+                type="core:Role"
                 use="required"
             />
             <xsd:attribute
@@ -1082,7 +1083,7 @@ victim => 処刑された人のAvatar識別子。誰も処刑されなかった�
                     </xsd:sequence>
                     <xsd:attribute
                         name="victim"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="optional"
                     />
                 </xsd:extension>
@@ -1107,7 +1108,7 @@ count => 集票数
         <xsd:complexType>
             <xsd:attribute
                 name="avatarId"
-                type="tns:AvatarId"
+                type="core:AvatarId"
                 use="required"
             />
             <xsd:attribute
@@ -1133,7 +1134,7 @@ count => 集票数
                 <xsd:extension base="tns:EventAnnounce">
                     <xsd:attribute
                         name="avatarId"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -1156,7 +1157,7 @@ count => 集票数
                 <xsd:extension base="tns:EventAnnounce">
                     <xsd:attribute
                         name="avatarId"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -1286,7 +1287,7 @@ limitTime => エピローグ終了時刻
                 <xsd:extension base="tns:EventOrder">
                     <xsd:attribute
                         name="winner"
-                        type="tns:Team"
+                        type="core:Team"
                         use="required"
                     />
                     <xsd:attribute
@@ -1329,12 +1330,12 @@ target => 占われたAvatarの識別子。
                 <xsd:extension base="tns:EventExtra">
                     <xsd:attribute
                         name="byWhom"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                     <xsd:attribute
                         name="target"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -1359,12 +1360,12 @@ target => 護衛されたAvatarの識別子。
                 <xsd:extension base="tns:EventExtra">
                     <xsd:attribute
                         name="byWhom"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                     <xsd:attribute
                         name="target"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                 </xsd:extension>
@@ -1420,12 +1421,12 @@ faceIconURI => アイコン画像URI
                 <xsd:extension base="tns:EventExtra">
                     <xsd:attribute
                         name="byWhom"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                     <xsd:attribute
                         name="target"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                     <xsd:attribute
@@ -1473,12 +1474,12 @@ faceIconURI => avatar要素の顔アイコンURIと同一なら省略。
                 <xsd:extension base="tns:TextLines">
                     <xsd:attribute
                         name="type"
-                        type="tns:TalkType"
+                        type="core:TalkType"
                         use="required"
                     />
                     <xsd:attribute
                         name="avatarId"
-                        type="tns:AvatarId"
+                        type="core:AvatarId"
                         use="required"
                     />
                     <xsd:attribute
