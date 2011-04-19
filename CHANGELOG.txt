@@ -4,6 +4,10 @@
 Jindolf XML Scheme 変更履歴
 
 
+110420 (2011-04-20)
+    ・G国対応。
+    ・Mercurialによる原本管理に移行。
+
 091001 (2009-10-01)
     ・avatar要素のfaceIconURI属性を省略可能に。
 
