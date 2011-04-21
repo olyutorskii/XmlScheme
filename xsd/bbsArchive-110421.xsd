@@ -7,7 +7,7 @@
     targetNamespace="http://jindolf.sourceforge.jp/xml/ns/501"
     elementFormDefault="qualified"
     xml:lang="ja-JP"
-    version="224"
+    version="225"
 >
 
     <xsd:annotation>
@@ -436,6 +436,26 @@ generator => XMLを吐き出したアプリ、サブシステム、ライブラ�
 
         <xsd:keyref name="onStage-avatar" refer="tns:avatar-id">
             <xsd:selector xpath=".//tns:onStage" />
+            <xsd:field xpath="@avatarId" />
+        </xsd:keyref>
+
+        <xsd:keyref name="vanish-avatar" refer="tns:avatar-id">
+            <xsd:selector xpath=".//tns:vanish" />
+            <xsd:field xpath="@avatarId" />
+        </xsd:keyref>
+
+        <xsd:keyref name="checkout-avatar" refer="tns:avatar-id">
+            <xsd:selector xpath=".//tns:checkout" />
+            <xsd:field xpath="@avatarId" />
+        </xsd:keyref>
+
+        <xsd:keyref name="execution-avatar-victim" refer="tns:avatar-id">
+            <xsd:selector xpath=".//tns:execution" />
+            <xsd:field xpath="@victim" />
+        </xsd:keyref>
+
+        <xsd:keyref name="nominated-avatar" refer="tns:avatar-id">
+            <xsd:selector xpath=".//tns:nominated" />
             <xsd:field xpath="@avatarId" />
         </xsd:keyref>
 
