@@ -4,6 +4,12 @@
 Jindolf XML Scheme 変更履歴
 
 
+※ 2019-04-25 に履歴管理を
+Mercurial (https://osdn.net/projects/jindolf/scm/hg/XmlScheme/tree/970657ef70d39032e107d83cf51100e8d2bd7bbc/)
+から
+Git (https://osdn.net/projects/jindolf/scm/git/XmlScheme/tree/b24a8e80220d8496ad66902e98e93d1b8b354306/)
+へ移行。
+
 110421 (2011-04-21)
     ・アバター識別子に関する存在制約チェックを追加。
 
